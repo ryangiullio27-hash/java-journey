@@ -1,5 +1,6 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
+import java.math.BigDecimal;
 
 public class BankApp {
     public static void main(String[] args) {
@@ -9,21 +10,21 @@ public class BankApp {
         String name = scanner.nextLine();
 
         System.out.println("Enter the initial balance:");
-        double initialBalance = 0;
+        BigDecimal initialBalance = BigDecimal.ZERO;
         Bank bank = new Bank();
 
         // Sample customers so transfers can be tested right away
-        Account mariaAccount = new Account("Maria", 0);
+        Account mariaAccount = new Account("Maria", BigDecimal.ZERO);
         Customer maria = new Customer("Maria", "12345678900", mariaAccount);
-        Account johnAccount = new Account("John", 0);
+        Account johnAccount = new Account("John", BigDecimal.ZERO);
         Customer john = new Customer("John", "98765432100", johnAccount);
         bank.addCustomer(john);
         bank.addCustomer(maria);
 
         while (true) {
             try {
-                initialBalance = scanner.nextDouble();
-                if (initialBalance < 0) {
+                initialBalance = scanner.nextBigDecimal();
+                if (initialBalance.compareTo(BigDecimal.ZERO) < 0) {
                     throw new IllegalArgumentException("Initial balance cannot be negative.");
                 }
                 break;
@@ -60,14 +61,14 @@ public class BankApp {
                 switch (mainOption) {
                     case 1:
                         System.out.println("Enter the amount to deposit:");
-                        double depositAmount = scanner.nextDouble();
+                        BigDecimal depositAmount = scanner.nextBigDecimal();
                         account1.deposit(depositAmount);
                         System.out.println("Deposit successful!");
                         System.out.println("Current balance: " + account1.getBalance());
                         break;
                     case 2:
                         System.out.println("Enter the amount to withdraw:");
-                        double withdrawAmount = scanner.nextDouble();
+                        BigDecimal withdrawAmount = scanner.nextBigDecimal();
                         account1.withdraw(withdrawAmount);
                         System.out.println("Withdrawal successful!");
                         System.out.println("Current balance: " + account1.getBalance());

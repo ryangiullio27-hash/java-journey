@@ -1,13 +1,16 @@
+import java.math.BigDecimal;
+import java.math.RoundingMode;
+
 public class Account {
-    private double balance;
+    private BigDecimal balance;
     private String holder;
 
-    public Account(String holder, double balance) {
+    public Account(String holder, BigDecimal balance) {
         this.holder = holder;
-        this.balance = balance;
+        this.balance = balance.setScale(2, RoundingMode.HALF_UP);
     }
 
-    public double getBalance() {
+    public BigDecimal getBalance() {
         return balance;
     }
 
@@ -15,24 +18,24 @@ public class Account {
         return holder;
     }
 
-    public void deposit(double amount) {
-        if (amount <= 0) {
+    public void deposit(BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Invalid amount.");
         }
-        this.balance += amount;
+        this.balance = this.balance.add(amount.setScale(2, RoundingMode.HALF_UP));
     }
 
-    public void withdraw(double amount) {
-        if (amount <= 0) {
+    public void withdraw(BigDecimal amount) {
+        if (amount.compareTo(BigDecimal.ZERO) <= 0) {
             throw new IllegalArgumentException("Invalid amount.");
         }
-        if (amount > balance) {
+        if (amount.compareTo(balance) > 0) {
             throw new IllegalArgumentException("Insufficient balance.");
         }
-        this.balance -= amount;
+        this.balance = this.balance.subtract(amount.setScale(2, RoundingMode.HALF_UP));
     }
 
-    public void transfer(Account destination, double amount) {
+    public void transfer(Account destination, BigDecimal amount) {
         withdraw(amount);
         destination.deposit(amount);
     }
