@@ -26,7 +26,7 @@ Each project's README lists its main class.
 
 ## Roadmap
 
-- [ ] Use `BigDecimal` for money
+- [x] Replace `double` with `BigDecimal` for money
 - [ ] Separate business logic from the console UI
 - [ ] Add unit tests with JUnit
 - [ ] Persist data with SQL (JDBC)
