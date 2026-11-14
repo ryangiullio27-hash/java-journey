@@ -93,7 +93,7 @@ public class BankApp {
                             break;
                         }
                         System.out.println("Enter the amount to transfer:");
-                        double transferAmount = scanner.nextDouble();
+                        BigDecimal transferAmount = scanner.nextBigDecimal();
                         account1.transfer(recipient.getAccount(), transferAmount);
                         System.out.println("Transfer successful!");
                         System.out.println("Current balance: " + account1.getBalance());
