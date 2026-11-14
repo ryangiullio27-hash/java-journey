@@ -28,6 +28,6 @@ Projects without Maven yet: run `javac *.java` inside the project folder, then `
 
 - [x] Replace `double` with `BigDecimal` for money
 - [ ] Separate business logic from the console UI
-- [ ] Add unit tests with JUnit
+- [X] Add unit tests with JUnit
 - [ ] Persist data with SQL (JDBC)
 - [ ] Build a REST API with Spring Boot

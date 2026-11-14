@@ -38,4 +38,4 @@ mvn test
 - [ ] Separate business logic from the menu/UI
 - [ ] Let the user operate on any registered account, not only the one created at startup
 - [ ] Persist data in a database (SQLite/PostgreSQL)
-- [ ] Unit tests with JUnit
+- [X] Unit tests with JUnit
