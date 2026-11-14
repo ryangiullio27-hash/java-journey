@@ -36,7 +36,7 @@ Two sample customers are preloaded so you can try transfers right away:
 
 ## Planned improvements
 
-- [ ] Replace `double` with `BigDecimal` for money
+- [X] Replace `double` with `BigDecimal` for money
 - [ ] Separate business logic from the menu/UI
 - [ ] Let the user operate on any registered account, not only the one created at startup
 - [ ] Persist data in a database (SQLite/PostgreSQL)
