@@ -19,21 +19,19 @@ A console application that simulates basic banking operations. Built to practice
 
 ## How to run
 
-Requires JDK 17 or newer.
+Requires JDK 17 or newer and [Maven](https://maven.apache.org/).
 
 ```
 cd projects/banking
-javac *.java
-java BankApp
+mvn compile
+java -cp target/classes BankApp
 ```
 
-Two sample customers are preloaded so you can try transfers right away:
+## Run the tests
 
-| Name  | Tax ID      |
-|-------|-------------|
-| Maria | 12345678900 |
-| John  | 98765432100 |
-
+```
+mvn test
+```
 ## Planned improvements
 
 - [X] Replace `double` with `BigDecimal` for money

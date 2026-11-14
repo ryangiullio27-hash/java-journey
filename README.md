@@ -18,11 +18,11 @@ Requires JDK 17 or newer. From the repository root:
 
 ```
 cd projects/banking
-javac *.java
-java BankApp
+mvn compile
+java -cp target/classes BankApp
 ```
 
-Each project's README lists its main class.
+Projects without Maven yet: run `javac *.java` inside the project folder, then `java` followed by the main class (listed in each project's README).
 
 ## Roadmap
 
